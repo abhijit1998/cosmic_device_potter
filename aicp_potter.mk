@@ -19,7 +19,7 @@
 $(call inherit-product, device/motorola/potter/full_potter.mk)
 
 # Inherit some common ArrowOS stuff.
-$(call inherit-product, vendor/syberia/config/common.mk)
+$(call inherit-product, vendor/aicp/config/common_full_phone.mk)
 
 # Boot animation
 TARGET_SCREEN_WIDTH := 1080
@@ -27,7 +27,7 @@ TARGET_SCREEN_HEIGHT := 1920
 
 ## Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := potter
-PRODUCT_NAME := syberia_potter
+PRODUCT_NAME := aicp_potter
 PRODUCT_BRAND := motorola
 PRODUCT_MANUFACTURER := motorola
 
