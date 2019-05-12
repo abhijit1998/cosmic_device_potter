@@ -79,6 +79,9 @@ on init
     # Set permissions for persist partition
     mkdir /persist 0771 root system
 
+    # Create Power HAL tunables
+    mkdir /dev/voxpopuli 0555 system system
+
     # Create cgroup mount point for memory
     mkdir /sys/fs/cgroup/memory/bg 0750 root system
     write /sys/fs/cgroup/memory/bg/memory.swappiness 140
@@ -101,6 +104,38 @@ on boot
     chmod 0440 /sys/devices/soc/78b7000.i2c/i2c-3/3-0020/input/input0/secure_touch
     chown system drmrpc /sys/devices/soc/78b7000.i2c/i2c-3/3-0020/input/input0/secure_touch_enable
     chown system drmrpc /sys/devices/soc/78b7000.i2c/i2c-3/3-0020/input/input0/secure_touch
+
+    # Set Power HAL tunables
+    write /dev/voxpopuli/enable_interaction_boost   1
+    write /dev/voxpopuli/fling_min_boost_duration   200
+    write /dev/voxpopuli/fling_max_boost_duration   2500
+    write /dev/voxpopuli/fling_boost_topapp         10
+    write /dev/voxpopuli/fling_min_freq_big         1113
+    write /dev/voxpopuli/fling_min_freq_little      1113
+    write /dev/voxpopuli/touch_boost_duration       200
+    write /dev/voxpopuli/touch_boost_topapp         5
+    write /dev/voxpopuli/touch_min_freq_big         1036
+    write /dev/voxpopuli/touch_min_freq_little      1036
+    chmod 0644 /dev/voxpopuli/enable_interaction_boost
+    chmod 0644 /dev/voxpopuli/fling_min_boost_duration
+    chmod 0644 /dev/voxpopuli/fling_max_boost_duration
+    chmod 0644 /dev/voxpopuli/fling_boost_topapp      
+    chmod 0644 /dev/voxpopuli/fling_min_freq_big      
+    chmod 0644 /dev/voxpopuli/fling_min_freq_little   
+    chmod 0644 /dev/voxpopuli/touch_boost_duration    
+    chmod 0644 /dev/voxpopuli/touch_boost_topapp      
+    chmod 0644 /dev/voxpopuli/touch_min_freq_big      
+    chmod 0644 /dev/voxpopuli/touch_min_freq_little   
+    chown system system /dev/voxpopuli/enable_interaction_boost
+    chown system system /dev/voxpopuli/fling_min_boost_duration
+    chown system system /dev/voxpopuli/fling_max_boost_duration
+    chown system system /dev/voxpopuli/fling_boost_topapp      
+    chown system system /dev/voxpopuli/fling_min_freq_big      
+    chown system system /dev/voxpopuli/fling_min_freq_little   
+    chown system system /dev/voxpopuli/touch_boost_duration    
+    chown system system /dev/voxpopuli/touch_boost_topapp      
+    chown system system /dev/voxpopuli/touch_min_freq_big      
+    chown system system /dev/voxpopuli/touch_min_freq_little
 
     chown bluetooth bluetooth /sys/module/bluetooth_power/parameters/power
     chown bluetooth net_bt /sys/class/rfkill/rfkill0/type
@@ -848,6 +883,7 @@ on property:sys.boot_completed=1
     chmod 0666 /sys/devices/soc/soc:qcom,cpubw/devfreq/soc:qcom,cpubw/bw_hwmon/hyst_length
 
     # Enable PowerHAL
+    stop vendor.power-hal-1-2
     start vendor.power-hal-1-2
     setprop vendor.powerhal.init 1
 
