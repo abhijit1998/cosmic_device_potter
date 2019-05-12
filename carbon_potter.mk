@@ -20,7 +20,7 @@ $(call inherit-product, device/motorola/potter/full_potter.mk)
 
 # Inherit some common CarbonRom stuff.
 $(call inherit-product, vendor/carbon/config/common.mk)
-$(call inherit-product, vendor/carbon/config/gsm.mk
+$(call inherit-product, vendor/carbon/config/gsm.mk)
 
 # Boot animation
 TARGET_SCREEN_WIDTH := 1080
