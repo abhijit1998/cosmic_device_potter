@@ -26,8 +26,5 @@ $(call inherit-product, device/motorola/potter/device.mk)
 PRODUCT_DEVICE := potter
 PRODUCT_NAME := full_potter
 
-PRODUCT_ENFORCE_RRO_TARGETS := \
-    framework-res
-
 # for specific
 $(call inherit-product, vendor/motorola/potter/potter-vendor.mk)
