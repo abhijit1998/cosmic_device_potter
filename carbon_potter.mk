@@ -36,6 +36,6 @@ PRODUCT_RELEASE_NAME := potter
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
     PRODUCT_NAME="potter" \
-    PRIVATE_BUILD_DESC="potter-7.0/NPNS25.137-33-11/11:user/release-keys"
+    PRIVATE_BUILD_DESC="payton-user 8.0.0 OPWS27.57-25-6-10 12 release-keys"
 
 BUILD_FINGERPRINT := motorola/payton/payton:8.0.0/OPWS27.57-25-6-10/12:user/release-keys
