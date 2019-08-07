@@ -16,11 +16,5 @@
    "repository":  "abhijit1998/packages_resources_MotoActions",
    "target_path": "packages/resources/MotoActions",
    "branch":      "pie"
- },
- {
-   "remote": "github",
-   "repository":  "abhijit1998/android_hardware_qcom_fm",
-   "target_path": "hardware/qcom/fm",
-   "branch":      "lineage-16.0"
  }
 ]
