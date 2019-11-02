@@ -15,9 +15,9 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/arrow_potter.mk
+    $(LOCAL_DIR)/cos_potter.mk
 
 COMMON_LUNCH_CHOICES := \
-    arrow_potter-user \
-    arrow_potter-userdebug \
-    arrow_potter-eng
+    cos_potter-user \
+    cos_potter-userdebug \
+    cos_potter-eng
